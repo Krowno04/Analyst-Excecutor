@@ -1,51 +1,120 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>The ANALYST View</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="css/indexStyle.css">
-    </head>
+<!-- TO DO: -->
+<!-- 
+- Figure out how to toggle the letters on and off remotely
+- Figure out how to import models into AFRAME and how the physics works
+- If models and physics cannot be figured out in a day, switch to static, one room button combo puzzle
+- Figure out how to have the text thing work properly
+- Style and textures?
+ -->
+<head>
+    <title>The ANALYST View</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/indexStyle.css">
+    <link rel="stylesheet" href="css/AnalystStyle.css">
+    <script src="letterToggle.js"></script>
+</head>
 
-    <body>
-        <div class="Menu">
+<body>
+    <div class="Menu">
         <!-- our buttond to tell others -->
-            <h1>ANALYST - CONSOLE</h1>
-            <h2>Door Controls</h2>
-            <button id="red" style="background-color:rgb(255, 0, 0); color:rgb(255, 255, 255)">◼</button>
-            <button id="blue" style="background-color:rgb(0, 0, 255); color:rgb(255, 255, 255)">◉</button>
-            <button id="green" style="background-color:rgb(0, 255, 0); color:rgb(255, 255, 255)">▲</button>
-            <h2>Code Management</h2>
-        </div>
-        <!-- this is magic code created when the node server runs -->
-        <!-- //VERY HANDY! https://socket.io/docs/v3/emit-cheatsheet/  -->
-        <script src="/socket.io/socket.io.js"></script>
-        <script>
-            let socket = io();
+        <h1>ANALYST - CONSOLE</h1>
+        <h2>Door Controls</h2>
+        <button class="button-29 red" id="red"
+            style="background-color:rgb(255, 0, 0); color:rgb(255, 255, 255)">◼</button>
+        <button class="button-29 blue" id="blue"
+            style="background-color:rgb(0, 0, 255); color:rgb(255, 255, 255)">◉</button>
+        <button class="button-29 green" id="green"
+            style="background-color:rgb(0, 255, 0); color:rgb(255, 255, 255)">△</button>
+        <h2>Code Management</h2>
+        <h3 id="letter1 toggle1">    L   </h3> 
+        <h3 id="letter2">    E   </h3>
+        <h3 id="letter3">    A   </h3>
+        <h3 id="letter4">    V   </h3>
+        <h3 id="letter5">    E   </h3>
+        <br>
+        <br>
+        <label class="input">
+            <input class="input__field" type="text" placeholder="Type revealed code here!"/>
+          </label>
+          <br>
+          <br>
+        <button class="button-29 gold" id="gold"
+        style="background-color:rgb(255, 217, 0); color:rgb(255, 255, 255)">SUBMIT CODE</button>
+    </div>
+    <!-- this is magic code created when the node server runs -->
+    <!-- //VERY HANDY! https://socket.io/docs/v3/emit-cheatsheet/  -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io();
 
-            socket.on('connect', (userData) => {
-                console.log('I exist!');
+        socket.on('connect', (userData) => {
+            console.log('I exist!');
+            let showletter1 = false
+            let showletter2 = false
+            let showletter3 = false
+            let showletter4 = false
+            let showletter5 = false
 
-                //put code here so that we know that socket.io has initailized ...
-                document.querySelector('#red').addEventListener('click', function(){
-                    socket.emit('red');
-                });
 
-                document.querySelector('#blue').addEventListener('click', function(){
-                    socket.emit('blue');
-                });
-
-                document.querySelector('#green').addEventListener('click', function(){
-                    socket.emit('green');
-                });
-
-                //listen to event from server
-                socket.on('color_change', (data) => {
-                    let colorStr = 'rgb(' + data.r + ',' + data.g + ',' + data.b + ')';
-                    console.log('color_change:' + colorStr);
-                    document.body.style.backgroundColor = colorStr;
-                });
+            //put code here so that we know that socket.io has initailized ...
+            document.querySelector('#red').addEventListener('click', function () {
+                socket.emit('red');
             });
 
-        </script>
-    </body>
+            document.querySelector('#blue').addEventListener('click', function () {
+                socket.emit('blue');
+            });
+
+            document.querySelector('#green').addEventListener('click', function () {
+                socket.emit('green');
+            });
+
+            document.querySelector('#gold').addEventListener('click', function () {
+                socket.emit('gold');
+            });
+
+            //listen to event from server
+            socket.on('color_change', (data) => {
+                let colorStr = 'rgb(' + data.r + ',' + data.g + ',' + data.b + ')';
+                console.log('color_change:' + colorStr);
+                document.body.style.backgroundColor = colorStr;
+            });
+
+            //listen to event from server
+            socket.on('show_letter_1', (data) => {
+                let show1 = data;
+                console.log('letter1:' + show1);
+                showletter1 = show1;
+            });
+            //listen to event from server
+            socket.on('show_letter_2', (data) => {
+                let show2 = data;
+                console.log('letter2:' + show2);
+                showletter2 = show2;
+            });
+            //listen to event from server
+            socket.on('show_letter_3', (data) => {
+                let show3 = data;
+                console.log('letter3:' + show3);
+                showletter3 = show3;
+            });
+            //listen to event from server
+            socket.on('show_letter_4', (data) => {
+                let show4 = data;
+                console.log('letter4:' + show4);
+                showletter4 = show4;
+            });
+            //listen to event from server
+            socket.on('show_letter_5', (data) => {
+                let show5 = data;
+                console.log('letter5:' + show5);
+                showletter5 = show5;
+            });
+        });
+
+    </script>
+</body>
+
 </html>
