@@ -44,6 +44,36 @@ io.on('connection', (socket) => {
         io.emit("color_change", {r:0, g:255, b:0});
     });
 
+    socket.on("gold", (data) => {
+        console.log( "gold event received" );
+        io.emit("color_change", {r:255, g:217, b:0});
+    });
+
+    socket.on("letter1Ev", (data) => {
+        console.log( "letter1 event received" );
+        io.emit("show_letter_1", true);
+    });
+
+    socket.on("letter2Ev", (data) => {
+        console.log( "letter2 event received" );
+        io.emit("show_letter_2", true);
+    });
+
+    socket.on("letter3Ev", (data) => {
+        console.log( "letter3 event received" );
+        io.emit("show_letter_3", true);
+    });
+
+    socket.on("letter4Ev", (data) => {
+        console.log( "letter4 event received" );
+        io.emit("show_letter_4", true);
+    });
+
+    socket.on("letter5Ev", (data) => {
+        console.log( "letter5 event received" );
+        io.emit("show_letter_5", true);
+    });
+
     //question 1: how do you continuously update the network, e.g., users position and orientation?
     //question 2: how do you synch clients to current state?
 });
