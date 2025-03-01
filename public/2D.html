@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The ANALYST View</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/indexStyle.css">
+    </head>
+
+    <body>
+        <div class="Menu">
+        <!-- our buttond to tell others -->
+            <h1>ANALYST - CONSOLE</h1>
+            <h2>Door Controls</h2>
+            <button id="red" style="background-color:rgb(255, 0, 0); color:rgb(255, 255, 255)">◼</button>
+            <button id="blue" style="background-color:rgb(0, 0, 255); color:rgb(255, 255, 255)">◉</button>
+            <button id="green" style="background-color:rgb(0, 255, 0); color:rgb(255, 255, 255)">▲</button>
+            <h2>Code Management</h2>
+        </div>
+        <!-- this is magic code created when the node server runs -->
+        <!-- //VERY HANDY! https://socket.io/docs/v3/emit-cheatsheet/  -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            let socket = io();
+
+            socket.on('connect', (userData) => {
+                console.log('I exist!');
+
+                //put code here so that we know that socket.io has initailized ...
+                document.querySelector('#red').addEventListener('click', function(){
+                    socket.emit('red');
+                });
+
+                document.querySelector('#blue').addEventListener('click', function(){
+                    socket.emit('blue');
+                });
+
+                document.querySelector('#green').addEventListener('click', function(){
+                    socket.emit('green');
+                });
+
+                //listen to event from server
+                socket.on('color_change', (data) => {
+                    let colorStr = 'rgb(' + data.r + ',' + data.g + ',' + data.b + ')';
+                    console.log('color_change:' + colorStr);
+                    document.body.style.backgroundColor = colorStr;
+                });
+            });
+
+        </script>
+    </body>
+</html>
