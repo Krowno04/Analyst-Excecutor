@@ -11,9 +11,9 @@
 <head>
     <title>The ANALYST View</title>
     <meta charset="utf-8" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <link rel="stylesheet" href="css/indexStyle.css">
     <link rel="stylesheet" href="css/AnalystStyle.css">
-    <script src="letterToggle.js"></script>
 </head>
 
 <body>
@@ -28,15 +28,15 @@
         <button class="button-29 green" id="green"
             style="background-color:rgb(0, 255, 0); color:rgb(255, 255, 255)">△</button>
         <h2>Code Management</h2>
-        <h3 id="letter1 toggle1">    L   </h3> 
-        <h3 id="letter2">    E   </h3>
-        <h3 id="letter3">    A   </h3>
-        <h3 id="letter4">    V   </h3>
-        <h3 id="letter5">    E   </h3>
+        <h3 id="letter1">    _   </h3> 
+        <h3 id="letter2">    _   </h3>
+        <h3 id="letter3">    _   </h3>
+        <h3 id="letter4">    _   </h3>
+        <h3 id="letter5">    _   </h3>
         <br>
         <br>
         <label class="input">
-            <input class="input__field" type="text" placeholder="Type revealed code here!"/>
+            <input id="check" class="input__field" type="text" placeholder="Type revealed code here!"/>
           </label>
           <br>
           <br>
@@ -71,9 +71,9 @@
                 socket.emit('green');
             });
 
-            document.querySelector('#gold').addEventListener('click', function () {
-                socket.emit('gold');
-            });
+            // document.querySelector('#gold').addEventListener('click', function () {
+            //     socket.emit('gold');
+            // });
 
             //listen to event from server
             socket.on('color_change', (data) => {
@@ -115,6 +115,8 @@
         });
 
     </script>
+        <script src="letterToggle.js"></script>
+        <script src="checkCode.js"></script>
 </body>
 
 </html>
