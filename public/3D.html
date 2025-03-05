@@ -12,12 +12,23 @@
         <button id="blue" style="background-color:rgb(0, 0, 255); color:rgb(255, 255, 255)">BLUE</button> -->
 
         <a-scene background="color:rgb(0, 0, 0);">
+
+            <a-assets>
+                <a-asset-item id="test" src="models/ShapeTest.glb" response-type="arraybuffer"></a-asset-item>
+                <a-asset-item id="maze" src="models/Maze.glb" response-type="arraybuffer"></a-asset-item>
+
+            </a-assets>
             <a-entity camera wasd-controls look-controls position="0 1.6 0">
                 <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
             </a-entity>
 
             <a-entity class="ground"  geometry="primitive:plane; width:14; height:14;" material="color:white;" position="0 0.01 0" rotation="-90 0 0"></a-entity>
-
+            <a-entity id="test_model" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#test"
+                shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;">
+            </a-entity>
+            <a-entity id="maze_walls" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#maze"
+            shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;">
+        </a-entity>
             <!-- red button -->
             <a-entity id="red_button" position="2 0.6 -1">
                 <a-entity class="button interactive" position="0 0.6 0" geometry="primitive:cylinder; radius:0.15; height:0.2;" material="color:rgb(255, 100, 100)"
