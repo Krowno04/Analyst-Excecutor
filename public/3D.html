@@ -14,11 +14,20 @@
 
     <a-scene background="color:rgb(0, 0, 0);">
         <a-entity id="ambientLight" light="type: ambient; color:rgb(255,255,255)"></a-entity>
+
+        <a-entity id="mainCam" camera wasd-controls look-controls position="0 1.6 0">
+            <a-entity id="flashlight" position="0 5 0" rotation="-90 0 0"
+                light="type:spot; intensity:0.3; castShadow:true; angle:40.0; penumbra:0.3;"></a-entity>
+            <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive;"></a-entity>
+        </a-entity>
+
         <a-assets>
             <a-asset-item id="maze" src="models/Maze.glb" response-type="arraybuffer"></a-asset-item>
             <a-asset-item id="reddoors" src="models/RED_DOORS.glb" response-type="arraybuffer"></a-asset-item>
             <a-asset-item id="bluedoors" src="models/BLUE_DOORS.glb" response-type="arraybuffer"></a-asset-item>
             <a-asset-item id="greendoors" src="models/GREEN_DOORS.glb" response-type="arraybuffer"></a-asset-item>
+            <a-asset-item id="golddoor" src="models/GOLD_DOOR.glb" response-type="arraybuffer"></a-asset-item>
+
         </a-assets>
         <a-entity camera wasd-controls look-controls position="0 1.6 0">
             <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive"></a-entity>
@@ -30,14 +39,17 @@
             shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;">
         </a-entity>
         <a-entity id="red_doors" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#reddoors"
-            shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;">
+            shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;" openDoor>
         </a-entity>
         <a-entity id="blue_doors" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#bluedoors"
-            shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;">
+            shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;" openDoor>
         </a-entity>
         <a-entity id="green_doors" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#greendoors"
-            shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;">
+            shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;" openDoor>
         </a-entity>
+        <a-entity id="gold_door" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#golddoor"
+        shadow="cast:true; receive:true;" circles-sphere-env-map="src:#skybox_dim;" openDoor>
+    </a-entity>
         <!-- L button -->
         <a-entity id="red_button" position="36.572 0.6 -6.512">
             <a-entity class="button interactive" position="0 0.6 0"
@@ -135,6 +147,7 @@
             // document.querySelector('#ambientLight').setAttribute('color', { colorStr });
         });
     </script>
+        <script src="toggleDoors.js"></script>
 </body>
 
 </html>
