@@ -88,6 +88,11 @@ io.on('connection', (socket) => {
         io.emit("show_letter_5", true);
     });
 
+    socket.on("victory", (data) => {
+        console.log("victory event received");
+        io.emit("victoryText", true);
+    });
+
     //question 1: how do you continuously update the network, e.g., users position and orientation?
     //question 2: how do you synch clients to current state?
 });

@@ -3,12 +3,11 @@
 <!-- TO DO: -->
 <!-- 
 - Nav mesh for maze
-- Incorrect code indicator 
+- Nav mesh for doors
 - Case-less input
 - Competetive mode with door timer, no code, and alt maze path
 
 EASY
-- Add "You win" button after gold door
 - Style and texturing and audio 
  -->
 
@@ -46,6 +45,8 @@ EASY
         <br>
         <button class="button-29 gold" id="gold"
             style="background-color:rgb(255, 217, 0); color:rgb(255, 255, 255)">SUBMIT CODE</button>
+
+            <h2 id="victoryText"> </h2>
     </div>
     <!-- this is magic code created when the node server runs -->
     <!-- //VERY HANDY! https://socket.io/docs/v3/emit-cheatsheet/  -->
@@ -121,6 +122,7 @@ EASY
     </script>
     <script src="letterToggle.js"></script>
     <script src="checkCode.js"></script>
+    <script src="youWin.js"></script>
 </body>
 
 </html>
