@@ -23,3 +23,23 @@ if(document.querySelector("#victoryPopup")){
             console.log('VICTORYTEXT 3D');
           });
     }
+
+    if (document.getElementById("victoryText")){
+        socket.on('vsText', (data) => {
+            if (data == true)
+            {
+                document.getElementById("victoryText").innerHTML = "EXCECUTOR WINS";
+            }
+            console.log('vsText 2D');
+          });
+    }
+    
+    if(document.querySelector("#victoryPopup")){
+            socket.on('vsText', (data) => {
+                if (data == true)
+                {
+                    document.querySelector("#victoryPopup").setAttribute("text", "value:ESCAPED;");
+                }
+                console.log('vsText 3D');
+              });
+        }

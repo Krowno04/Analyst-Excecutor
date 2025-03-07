@@ -33,18 +33,21 @@ io.on('connection', (socket) => {
         io.emit("color_change", { r: 255, g: 0, b: 0 });         //to all connected clients
         //io.socket.emit("color_change", {r:255, g:0, b:0});  //to everyone but sender
         io.emit("red_door", true);         //to all connected clients
+        io.emit("vs_red", true);
     });
 
     socket.on("blue", (data) => {
         console.log("blue event received");
         io.emit("color_change", { r: 0, g: 0, b: 255 });         //to all connected clients
         io.emit("blue_door", true);
+        io.emit("vs_blue", true);
     });
 
     socket.on("green", (data) => {
         console.log("green event received");
         io.emit("color_change", { r: 0, g: 255, b: 0 });         //to all connected clients
         io.emit("green_door", true);
+        io.emit("vs_green", true);
     });
 
     // socket.on("orange", (data) => {
@@ -91,6 +94,11 @@ io.on('connection', (socket) => {
     socket.on("victory", (data) => {
         console.log("victory event received");
         io.emit("victoryText", true);
+    });
+
+    socket.on("vsOver", (data) => {
+        console.log("versus event received");
+        io.emit("vsText", true);
     });
 
     //question 1: how do you continuously update the network, e.g., users position and orientation?
