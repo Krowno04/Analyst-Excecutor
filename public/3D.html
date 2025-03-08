@@ -43,8 +43,28 @@
             <a-asset-item id="VSgreendoors" src="models/VS_GREEN_DOORS.glb" response-type="arraybuffer"></a-asset-item>
         </a-assets>
 
-        <a-entity id="InstructionsBox" position="-0.1 1 -5" geometry="primitive:box; width:0.5; depth:0.5; height:0.6;"
-        material="color:rgb(255, 255, 255)" shadow></a-entity>
+        <a-entity id="InstructionsBox" position="-0.1 2 -4" geometry="primitive:box; width:2.5; depth:0.5; height:3.5;"
+        material="color:rgb(190, 190, 190)" shadow>
+        <a-entity class="instText" id="instText" text="value:
+        INSTRUCTIONS: 
+
+        The Analyst buttons will open or close doors you!
+
+        COLLABORATIVE MAZE 
+        (LIGHTER ONE):
+
+        You have buttons to find in the maze, which reveal the code for the Analyst!
+        
+        Once you have the code, the Analyst will put it into a code input on their end to open the final door for you!
+        
+        COMPETITIVE MAZE 
+        (DARKER ONE):
+
+        In this maze, the Analyst's buttons will CLOSE the door they match with!
+        
+        They want to PREVENT you from exiting in that maze!; color:black; font:roboto; anchor:left; baseline:top; width:1.1; wrapCount:30;" position="-1.1 1.5 0.3"
+        scale="2 2 2" rotation="0 0 0" color="black" openDoor></a-entity>
+    </a-entity>
 
         <!-- <a-entity class="ground" geometry="primitive:plane; width:14; height:14;" material="color:white;"
             position="0 0.01 0" rotation="-90 0 0"></a-entity> -->
