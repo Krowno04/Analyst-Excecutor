@@ -1,6 +1,6 @@
 # Analyst / Excecutor
 Assignment for IMD3901, a multi-user game!
-
+![image](https://github.com/user-attachments/assets/f3b79c6d-8216-4d3e-bacd-979ac9dfb85d)
 ***
 ## DESCRIPTION:
 For this assignment, I created a two person maze/puzzle game! In this game, there are two roles: The Analyst, who has a view of the 2D screen, and the Executor, who has a view of the 3D screen! The Analyst works as the sort of "navigator" or "guy in the chair" for the game. They have control of the doors within the mazes, and are the one who can open and close them. The Executor is IN the mazes, and is trying to find their way out. 
