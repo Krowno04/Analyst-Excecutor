@@ -1,5 +1,6 @@
 var entity = document.querySelector('#doors_Sound');
 
+// On connection events, showing all doors
 socket.on('connect', (userData) => {
     document.querySelector("#gold_door").setAttribute('visible', true);
     document.querySelector("#red_doors").setAttribute('visible', true);
@@ -7,7 +8,7 @@ socket.on('connect', (userData) => {
     document.querySelector("#blue_doors").setAttribute('visible', true);
     console.log("I LIVE")
 })
-//listen to event from server
+//Door toggle: Red
 socket.on('red_door', (data) => {
 
     document.querySelector("#red_doors").setAttribute('visible', false);
@@ -16,7 +17,7 @@ socket.on('red_door', (data) => {
     entity.components.sound.playSound();
     console.log('Red Toggled');
 });
-//listen to event from server
+//Door toggle: Green
 socket.on('green_door', (data) => {
     document.querySelector("#red_doors").setAttribute('visible', true);
     document.querySelector("#green_doors").setAttribute('visible', false);
@@ -24,7 +25,7 @@ socket.on('green_door', (data) => {
     entity.components.sound.playSound();
     console.log('Green Toggled');
 });
-//listen to event from server
+//Door toggle: Blue
 socket.on('blue_door', (data) => {
 
     document.querySelector("#red_doors").setAttribute('visible', true);
@@ -33,6 +34,7 @@ socket.on('blue_door', (data) => {
     entity.components.sound.playSound();
     console.log('Blue Toggled');
 });
+//Door toggle: Gold
 socket.on('gold_door', (data) => {
     entity.components.sound.playSound();
     document.querySelector("#red_doors").setAttribute('visible', false);
@@ -43,7 +45,7 @@ socket.on('gold_door', (data) => {
     console.log('GOLD Toggled');
 });
 
-//listen to event from server
+//Door toggle: Red VS
 socket.on('vs_red', (data) => {
 
     document.querySelector("#VS_red_doors").setAttribute('visible', true);
@@ -52,7 +54,7 @@ socket.on('vs_red', (data) => {
     entity.components.sound.playSound();
     console.log('Red VS Toggled');
 });
-//listen to event from server
+//Door toggle: Green VS
 socket.on('vs_green', (data) => {
     document.querySelector("#VS_red_doors").setAttribute('visible', false);
     document.querySelector("#VS_green_doors").setAttribute('visible', true);
@@ -60,7 +62,7 @@ socket.on('vs_green', (data) => {
     entity.components.sound.playSound();
     console.log('Green VS Toggled');
 });
-//listen to event from server
+//Door toggle: Blue VS
 socket.on('vs_blue', (data) => {
     document.querySelector("#VS_red_doors").setAttribute('visible', false);
     document.querySelector("#VS_green_doors").setAttribute('visible', false);

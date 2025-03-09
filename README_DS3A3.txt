@@ -7,3 +7,5 @@ For the competitive maze, the Analyst's role is flipped. The buttons now CLOSE t
 In terms of challenges for this project, the main things were the due dates of other projects preventing me from spending more time on it, and texturing issues. The models of the mazes were difficult to texture, since I modeled them a bit strangely, and the UVs were SUPER broken. I wasn't sure how to fix them, even with time dedicated to trying to clean them up as much as I can, without just entirely remolding them, which would require reworking everything else to fit the new models. I also had to retexture the doors a few times to orient the shapes correctly, and even then, due to the size of a couple pathways, the shapes still sometimes get cut off.
 
 For successes, most other things for this project went relatively smoothly! I was able to implement most of the features I wanted to implement, including the doors triggering properly, the nav-mesh, sound effects, and network events really smoothly! I feel like I have a good grasp on network events now, which I am very happy about!
+
+https://github.com/Krowno04/Analyst-Excecutor-DS3A3
