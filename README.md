@@ -19,5 +19,9 @@ For the cooperative maze, the Analyst's buttons will open the doors of the assoc
 For the competitive maze, the Analyst's role is flipped. The buttons now CLOSE the doors instead of opening them. However, only one door type can be closed at a time, and the maze has multiple pathways, so the Analyst is trying to keep the Executor in the maze, without knowing the maze layout or what doors they are encountering. If the Executor can reach the end, they press the button and get a victory screen!
 
 ***
+### SFX CREDITS:
+* SFX from Pixabay, copyright free sfx
+* Music: The Big Sleep from Honkai: Star Rail: https://www.youtube.com/watch?v=UJsCvVb18Ec
+***
 ### Basic premise:
 <img width="1321" alt="AnaylstExcecutor" src="https://github.com/user-attachments/assets/b6a36fd5-2bb3-478d-8374-18ccb9f35f9c" />
