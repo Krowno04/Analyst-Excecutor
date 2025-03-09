@@ -1,10 +1,23 @@
 # Analyst / Excecutor
+Assignment for IMD3901, a multi-user game!
+
 ***
 ## DESCRIPTION:
+For this assignment, I created a two person maze/puzzle game! In this game, there are two roles: The Analyst, who has a view of the 2D screen, and the Executor, who has a view of the 3D screen! The Analyst works as the sort of "navigator" or "guy in the chair" for the game. They have control of the doors within the mazes, and are the one who can open and close them. The Executor is IN the mazes, and is trying to find their way out. 
 
+In terms of challenges for this project, the main things were the due dates of other projects preventing me from spending more time on it, and texturing issues. The models of the mazes were difficult to texture, since I modeled them a bit strangely, and the UVs were SUPER broken. I wasn't sure how to fix them, even with time dedicated to trying to clean them up as much as I can, without just entirely remolding them, which would require reworking everything else to fit the new models. I also had to retexture the doors a few times to orient the shapes correctly, and even then, due to the size of a couple pathways, the shapes still sometimes get cut off.
+
+For successes, most other things for this project went relatively smoothly! I was able to implement most of the features I wanted to implement, including the doors triggering properly, the nav-mesh, sound effects, and network events really smoothly! I feel like I have a good grasp on network events now, which I am very happy about!
+
+***
 ## INSTRUCTIONS:
 
-Instructions and description will come later into development!
+The Executor uses WASD to move and mouse to look around, while the Analyst does everything with clicking and text input.
 
+For the cooperative maze, the Analyst's buttons will open the doors of the associated colour, while closing all others. The Executor then wanders the maze with the Analyst helping by opening doors for them. At the end of the maze is a gold door, which can only be opened by inputting a code on the Analyst screen and submitting it. Inside the maze, are 5 buttons. Each button pressed reveals a letter of the code for the Analyst, who then types it into the box, and opens the door for the Executor! The Executor ends by pressing the victory button!
+
+For the competitive maze, the Analyst's role is flipped. The buttons now CLOSE the doors instead of opening them. However, only one door type can be closed at a time, and the maze has multiple pathways, so the Analyst is trying to keep the Executor in the maze, without knowing the maze layout or what doors they are encountering. If the Executor can reach the end, they press the button and get a victory screen!
+
+***
 ### Basic premise:
 <img width="1321" alt="AnaylstExcecutor" src="https://github.com/user-attachments/assets/b6a36fd5-2bb3-478d-8374-18ccb9f35f9c" />
