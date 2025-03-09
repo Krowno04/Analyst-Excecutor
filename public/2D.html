@@ -1,18 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!-- TO DO: -->
-<!-- 
-- Case-less input
-Competetive
-- Door timer
-    - Have button for 3D player that turns on the door cooldowns?
-    - Maybe use setTimeout()?
-    - https://www.w3schools.com/js/js_timing.asp
-
-EASY
-Style and texturing and audio 
-- Door switch sound
- -->
 
 <head>
     <title>The ANALYST View</title>
@@ -24,9 +11,10 @@ Style and texturing and audio
 
 <body>
     <div class="Menu">
-        <!-- our buttond to tell others -->
+        <!-- The Analyst console view, includes the buttons, letter code, and input -->
         <h1>ANALYST - CONSOLE</h1>
         <h2>Door Controls</h2>
+        <!-- Button styling found here: https://getcssscan.com/css-buttons-examples -->
         <button class="button-29 red" id="red"
             style="background-color:rgb(255, 0, 0); color:rgb(255, 255, 255)">◼</button>
         <button class="button-29 blue" id="blue"
@@ -46,20 +34,21 @@ Style and texturing and audio
         </label>
         <br>
         <br>
+        <!-- Final Code Submission button -->
         <button class="button-29 gold" id="gold"
             style="background-color:rgb(255, 217, 0); color:rgb(255, 255, 255)">SUBMIT CODE</button>
 
-            <h2 id="victoryText"> </h2>
-            <br>
-            <h2>Instructions:</h2>
-            <p>Your buttons will open or close doors for the Excecutor!</p>
-            <h3> COLLABORATIVE MAZE (LIGHTER ONE):</h3>
-            <p>They have buttons in the maze, which reveal the code for you!</p>
-            <p>Once you have the code, put it in to open the final door for them!</p>
-            <h3> COMPETITIVE MAZE (DARKER ONE):</h3>
-            <p>In this maze, your buttons will CLOSE the door they match with!</p>
-            <p>You want to PREVENT them from exiting in that maze!</p>
-            
+        <h2 id="victoryText"> </h2>
+        <br>
+        <h2>Instructions:</h2>
+        <p>Your buttons will open or close doors for the Excecutor!</p>
+        <h3> COLLABORATIVE MAZE (LIGHTER ONE):</h3>
+        <p>They have buttons in the maze, which reveal the code for you!</p>
+        <p>Once you have the code, put it in to open the final door for them!</p>
+        <h3> COMPETITIVE MAZE (DARKER ONE):</h3>
+        <p>In this maze, your buttons will CLOSE the door they match with!</p>
+        <p>You want to PREVENT them from exiting in that maze!</p>
+
     </div>
     <!-- this is magic code created when the node server runs -->
     <!-- //VERY HANDY! https://socket.io/docs/v3/emit-cheatsheet/  -->
@@ -67,6 +56,7 @@ Style and texturing and audio
     <script>
         let socket = io();
 
+        // Event handlers
         socket.on('connect', (userData) => {
             console.log('I exist!');
             let showletter1 = false
@@ -77,6 +67,7 @@ Style and texturing and audio
 
 
             //put code here so that we know that socket.io has initailized ...
+            // Door Open Events
             document.querySelector('#red').addEventListener('click', function () {
                 socket.emit('red');
             });
@@ -89,42 +80,34 @@ Style and texturing and audio
                 socket.emit('green');
             });
 
-            // document.querySelector('#gold').addEventListener('click', function () {
-            //     socket.emit('gold');
-            // });
-
-            //listen to event from server
+            //BG Colour Event
             socket.on('color_change', (data) => {
                 let colorStr = 'rgb(' + data.r + ',' + data.g + ',' + data.b + ')';
                 console.log('color_change:' + colorStr);
                 document.body.style.backgroundColor = colorStr;
             });
 
-            //listen to event from server
+            //Letter Reveal events
             socket.on('show_letter_1', (data) => {
                 let show1 = data;
                 console.log('letter1:' + show1);
                 showletter1 = show1;
             });
-            //listen to event from server
             socket.on('show_letter_2', (data) => {
                 let show2 = data;
                 console.log('letter2:' + show2);
                 showletter2 = show2;
             });
-            //listen to event from server
             socket.on('show_letter_3', (data) => {
                 let show3 = data;
                 console.log('letter3:' + show3);
                 showletter3 = show3;
             });
-            //listen to event from server
             socket.on('show_letter_4', (data) => {
                 let show4 = data;
                 console.log('letter4:' + show4);
                 showletter4 = show4;
             });
-            //listen to event from server
             socket.on('show_letter_5', (data) => {
                 let show5 = data;
                 console.log('letter5:' + show5);

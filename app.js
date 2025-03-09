@@ -50,16 +50,6 @@ io.on('connection', (socket) => {
         io.emit("vs_green", true);
     });
 
-    // socket.on("orange", (data) => {
-    //     console.log("orange event received");
-    //     io.emit("color_change", { r: 255, g: 100, b: 0 });
-    // });
-
-    // socket.on("purple", (data) => {
-    //     console.log("purple event received");
-    //     io.emit("color_change", { r: 255, g: 0, b: 255 });
-    // });
-
     socket.on("gold", (data) => {
         console.log("gold event received");
         io.emit("color_change", { r: 255, g: 217, b: 0 });
